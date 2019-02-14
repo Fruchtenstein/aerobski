@@ -1,0 +1,11 @@
+PRAGMA foreign_keys=OFF;
+BEGIN TRANSACTION;
+CREATE TABLE teams (teamid INTEGER PRIMARY KEY, teamname);
+CREATE TABLE cup (teamid INTEGER, week INTEGER, distance REAL, PRIMARY KEY(teamid, week));
+CREATE TABLE playoff (teamid INTEGER, bracket INTEGER, wins INTEGER DEFAULT 0);
+CREATE TABLE runners (runnerid INTEGER PRIMARY KEY, runnername, teamid INTEGER, goal REAL, sex INTEGER);
+CREATE TABLE log (runid INTEGER PRIMARY KEY, runnerid INTEGER, date, distance REAL, time, type);
+CREATE TABLE wlog (runnerid INTEGER, week INTEGER, distance REAL, PRIMARY KEY(runnerid, week));
+CREATE TABLE titles (runnerid INTEGER, date, title);
+CREATE TABLE points (teamid INTEGER, week INTEGER, points INTEGER, pcts REAL, PRIMARY KEY(teamid, week));
+COMMIT;
